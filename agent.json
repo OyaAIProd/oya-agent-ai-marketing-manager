@@ -1,0 +1,106 @@
+{
+  "agent_id": "808ed39d-2899-49d8-bc9d-6d7bee453da9",
+  "name": "AI Marketing Manager",
+  "mode": "skills",
+  "deploy_status": "draft",
+  "chat_model": null,
+  "system_prompt": "",
+  "scratchpad": "",
+  "soul": {
+    "persona": "",
+    "brand": {},
+    "behavior_rules": [],
+    "welcome_message": ""
+  },
+  "skills": [
+    {
+      "skill_id": "rest-api",
+      "name": "REST API Call",
+      "description": "Make HTTP requests to external APIs \u2014 GET, POST, PUT, PATCH, DELETE",
+      "skill_type": "tool",
+      "category": "general",
+      "catalog_type": "core",
+      "config": {}
+    },
+    {
+      "skill_id": "search-kb",
+      "name": "Knowledge Base",
+      "description": "Search the agent's uploaded documents and knowledge base",
+      "skill_type": "tool",
+      "category": "general",
+      "catalog_type": "core",
+      "config": {}
+    },
+    {
+      "skill_id": "web-search",
+      "name": "Web Search",
+      "description": "Search the web for current information, news, and answers",
+      "skill_type": "tool",
+      "category": "general",
+      "catalog_type": "core",
+      "config": {}
+    },
+    {
+      "skill_id": "memory",
+      "name": "Agent Memory",
+      "description": "Remember and recall facts about users and context across conversations, and manage your persistent scratchpad/brain",
+      "skill_type": "tool",
+      "category": "general",
+      "catalog_type": "core",
+      "config": {}
+    },
+    {
+      "skill_id": "text-to-speech",
+      "name": "Text to Speech",
+      "description": "Convert text to speech audio file using gTTS (free, no API key needed)",
+      "skill_type": "sandbox",
+      "category": "voice",
+      "catalog_type": "core",
+      "config": {}
+    }
+  ],
+  "gateways": [],
+  "routines": [
+    {
+      "name": "Morning Content Research",
+      "description": "",
+      "schedule_human": "0 8 * * 1-5",
+      "schedule_cron": "0 8 * * 1-5",
+      "prompt": "Research trending topics and conversations relevant to Oya.ai:\n1. Search the web for trending AI agent news, product launches, and discussions from the last 24 hours\n2. Check Hacker News top stories for AI/automation discussions worth engaging with\n3. Check GitHub trending repos in AI/ML space for interesting new projects\n4. Look for conversations about AI automation, AI employees, no-code AI, agent frameworks\n5. Check what competitors (Relevance AI, Lindy, CrewAI, n8n) are posting about\n6. Save the top 5 content opportunities to memory with brief notes on angle and platform\n\nPost a morning brief to Slack with:\n- Top 3 trending topics you can create content about today\n- Any hot HN threads or GitHub repos worth engaging with\n- Any competitor moves worth responding to\n- Suggested posts for today (one per platform with draft copy)\n",
+      "output_channel": "",
+      "is_active": true
+    },
+    {
+      "name": "LinkedIn Daily Post",
+      "description": "",
+      "schedule_human": "0 10 * * 1-5",
+      "schedule_cron": "0 10 * * 1-5",
+      "prompt": "Write and publish today's LinkedIn post. Follow the content calendar:\n- Monday: AI employee use case story (specific, with numbers)\n- Tuesday: Industry hot take or contrarian opinion\n- Wednesday: Tutorial or how-to\n- Thursday: List post (tips, lessons, tools)\n- Friday: Week recap with metrics and learnings\n\nUse the content playbook format. Hook in the first line. Keep it under 300 words.\nAdd 2-3 relevant hashtags max. End with a question to drive comments.\n\nBefore writing, check memory for what performed well recently and lean into those topics.\nAfter posting, save the post topic and URL to memory for tracking.\n",
+      "output_channel": "",
+      "is_active": true
+    },
+    {
+      "name": "X Daily Engagement",
+      "description": "",
+      "schedule_human": "0 11 * * 1-5",
+      "schedule_cron": "0 11 * * 1-5",
+      "prompt": "Create and publish content on X/Twitter:\n- Monday, Wednesday, Friday: Write a numbered thread (5-7 tweets) on a trending topic\n- Tuesday, Thursday: Post 2 standalone tweets \u2014 one insight, one question\n\nKeep tweets punchy and opinionated. Use the content playbook for format guidance.\nCheck memory for what topics resonate and double down.\n\nAfter posting, save the topic to memory for performance tracking.\n",
+      "output_channel": "",
+      "is_active": true
+    },
+    {
+      "name": "Hacker News Engagement",
+      "description": "",
+      "schedule_human": "0 15 * * 1-5",
+      "schedule_cron": "0 15 * * 1-5",
+      "prompt": "Engage on Hacker News with genuine technical depth:\n\n1. Search HN for trending stories about AI agents, automation, developer tools, or SaaS\n2. Find 1-2 active threads where you can add real technical value\n3. Write thoughtful comments with architecture insights, honest tradeoffs, or code examples\n4. Follow the content calendar:\n   - Monday: Comment on a trending AI/automation post with a technical perspective\n   - Tuesday: Engage in GitHub Discussions on AI/ML repos (langchain, autogen, crewai, etc.)\n   - Wednesday: If we have a genuinely useful tool or technical write-up ready, submit a Show HN\n   - Thursday: Star and comment on trending AI repos \u2014 add real code suggestions or use case ideas\n   - Friday: Comment on a weekend-discussion or AI-future thread with honest takes\n\nRules:\n- NEVER use marketing language on HN \u2014 readers will flag anything that smells like an ad\n- Only mention Oya if it's genuinely relevant to the technical discussion\n- Share real architecture decisions, performance numbers, and honest tradeoffs\n- Long, detailed comments with code examples outperform short takes\n\nSave engaged threads and any notable responses to memory.\n",
+      "output_channel": "",
+      "is_active": true
+    }
+  ],
+  "triggers": [],
+  "mcp_connections": [],
+  "memories": [],
+  "knowledge_base": [],
+  "tools_config": {}
+}
